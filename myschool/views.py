@@ -4,13 +4,13 @@ from django.shortcuts import render
 from email import message
 from urllib import response
 from django.shortcuts import redirect, render,HttpResponseRedirect
-from .models import Fee, Teacher, Student, Scores
+from .models import Fee, Teacher, Student, Scores, Staff
 from django.contrib.auth import login, authenticate
 from django.http import JsonResponse, Http404
 from django.contrib.auth.models import User 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import TeacherForm, ScoresForm, StudentForm, FeeForm
+from .forms import TeacherForm, ScoresForm, StudentForm, FeeForm, StaffForm
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -21,9 +21,18 @@ def dashboard(request):
 @login_required(login_url='/accounts/login/')
 def teachers(request):
     teachers = Teacher.objects.all()
-    
-    
-    
+
+    return render(request,'teachers.html',{'teachers':teachers})
+
+@login_required(login_url='/accounts/login/')
+def students(request):
+    students = Student.objects.all()
+
+    return render(request,'studentss.html',{'students':students})
+
+@login_required(login_url='/accounts/login/')
+def staffs(request):
+    staffs = Staff.objects.all()
 
     return render(request,'teachers.html',{'teachers':teachers})
 

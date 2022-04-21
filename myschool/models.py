@@ -6,7 +6,6 @@ from django.forms import CharField, IntegerField
 # Create your models here.
 class Teacher(models.Model):
     name = models.CharField(max_length=50)
-    adm_no = models.IntegerField()
     tsc_no =models.IntegerField()
     subject1 = models.CharField(max_length=20)
     subject2 = models.CharField(max_length=20)
@@ -17,6 +16,7 @@ class Teacher(models.Model):
 class Student(models.Model):
     f_name = models.CharField(max_length=30)
     l_name = models.CharField(max_length=30)
+    adm_no = models.IntegerField()
     form = models.CharField(max_length=5)
     parent_name =models.CharField(max_length=50)
     parent_phone = models.IntegerField()
@@ -42,3 +42,11 @@ class Scores(models.Model):
 
     def __str__(self):
         return self.year
+
+class Staff(models.Model):
+    name = models.CharField(max_length=50)
+    role = models.CharField(max_length=20)
+    salary = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.nam

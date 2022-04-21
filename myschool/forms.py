@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Teacher, Scores, Student, Fee
+from .models import Teacher, Scores, Student, Fee, Staff
 
 class TeacherForm(forms.ModelForm):
     class Meta:
@@ -26,3 +26,9 @@ class FeeForm(forms.ModelForm):
     class Meta:
         model= Fee
         fields='__all__'
+
+class StaffForm(forms.ModelForm):
+    class Meta:
+        model = Staff
+       
+        fields ='__all__'
