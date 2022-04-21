@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'myschool',
     'cloudinary',
     'bootstrap3',
+    
 ]
 
 MIDDLEWARE = [

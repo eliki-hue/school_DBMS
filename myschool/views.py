@@ -20,7 +20,7 @@ def dashboard(request):
 
 @login_required(login_url='/accounts/login/')
 def home(request):
-    neighbourHood = NeighbourHood.objects.all()
+    neighbourHood = Teacher.objects.all()
     message ="Select your Neighbourhoods"
     
     
@@ -28,55 +28,16 @@ def home(request):
     return render(request,'index.html',{'neighbourhoods': neighbourHood, 'message': message})
 
 
-@login_required(login_url='/accounts/login/')
-def profile_update(request):
-    current_user = request.user
-    if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES)
-        if form.is_valid():
-            profile= Profile.objects.filter(username=current_user)
-            print(profile)
-            if profile:
-                print('profile exist')
-                username = current_user
-                useremail=form.cleaned_data['useremail']
-               
-                userage=form.cleaned_data['userage']
-                profile_image=form.cleaned_data['profile_image']
-                AuthenticationError=form.cleaned_data['AuthenticationError']
-                Profile.objects.filter(username=current_user).update(useremail=useremail, userage=userage,profile_image=profile_image,AuthenticationError=AuthenticationError)
-            else:
-                print('profile does not exist')
-                profile=form.save(commit=False)
-                profile.username= current_user
-                profile.save()
 
-            message='saved successfuly'
-            # profile_display(request)
-            return redirect(profile_display)
-    
-            
-    else:
-        form = ProfileForm()
-        
-    return render(request, 'profile.html',{'form':form})
        
        
-@login_required(login_url='/accounts/login/')
-def profile_display(request):
-
-    current_user = request.user
-    profile= Profile.objects.filter(username=current_user)
-   
-
-    return render(request, 'profiledisplay.html',{'profile':profile})
 
 @login_required(login_url='/accounts/login/')
 def add_business(request):
     current_user = request.user
     if request.method =='POST':
         print('received')
-        form = BusinessForm(request.POST, request.FILES)
+        form = ScoresForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             print('saved successfully')
@@ -86,7 +47,7 @@ def add_business(request):
     
     else:
         print('get request')
-        form = BusinessForm()
+        form = ScoresForm()
         return render(request, 'add_business.html', {'form':form})
     return redirect('home')
 
@@ -94,14 +55,14 @@ def add_business(request):
 def add_post(request):
     if request.method =='POST':
         
-        form = PostForm(request.POST, request.FILES)
+        form = StudentForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
            
             print('post saved successfully')
     
     else:
-        form = PostForm()
+        form = StudentForm()
 
         return render(request, 'add_post.html', {'form':form})
     return redirect('single_neighbourhood')
@@ -109,13 +70,13 @@ def add_post(request):
 @login_required(login_url='/accounts/login/')
 def add_neighbourhood(request):
     if request.method =='POST':
-        form = NeighbourHoodForm(request.POST, request.FILES)
+        form = TeacherForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect(home)
     
     else:
-        form = NeighbourHoodForm()
+        form = TeacherForm()
         return render(request, 'add_neighbourhood.html', {'form':form})
 
 @login_required(login_url='/accounts/login/')
@@ -124,10 +85,10 @@ def search_results(request):
     if 'search_term' in request.GET and request.GET["search_term"]:
         search_term = request.GET.get("search_term")
         try:
-            searched_result = Business.search_business(search_term)
+            searched_result = Scores.search_business(search_term)
             message = f"Found searched business {search_term}"
         
-        except Business.DoesNotExist:
+        except Scores.DoesNotExist:
              message="No business with that name try a different name."
              return render(request, 'NotFound.html',{'message':message})
 
@@ -141,7 +102,7 @@ def search_results(request):
 def single_neighbourhood(request, pk):
     
     print('searching....................')
-    belonging=NeighbourHood.objects.get(id=pk)
+    belonging=Teacher.objects.get(id=pk)
     print(belonging)
 
     return render(request, 'home.html',{'neighbourhood':belonging})
