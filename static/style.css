@@ -1,4 +1,136 @@
-button {
-    background-color: blue;
+.button-teacher {
+   
+    
+    -webkit-box-shadow: -8px -5px 5px 0px rgba(28,22,28,0.52);
+    -moz-box-shadow: -8px -5px 5px 0px rgba(28,22,28,0.52);
+    box-shadow: -8px -5px 5px 0px rgba(28,22,28,0.52);
+    padding: 30%;
+    border: none;
+    margin: 10px;
+
+    font-size: x-large;
+    font-weight: bolder;
+
+    background: hsla(209, 100%, 77%, 1);
+
+    background: radial-gradient(circle, rgb(135, 72, 141) 0%, rgb(150, 80, 112) 100%);
+    
+    background: -moz-radial-gradient(circle, rgb(119, 54, 119) 0%, rgb(163, 90, 125) 100%);
+    
+    background: -webkit-radial-gradient(circle, rgb(146, 78, 146) 0%, rgba(134, 76, 104, 0.568) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8AC6FF", endColorstr="#EA72AD", GradientType=1 );
+}
+.button-student{
+    -webkit-box-shadow: -5px -5px 10px 0px rgba(28,22,28,0.52);
+    -moz-box-shadow: -5px -5px 10px 0px rgba(28,22,28,0.52);
+    box-shadow: -5px -5px 10px 0px rgba(28,22,28,0.52);
+    padding: 30%;
+    border: none;
+    margin: 10px;
+    font-size: x-large;
+    font-weight: bolder;
+
+    background: hsla(273, 50%, 58%, 1);
+
+background: radial-gradient(circle, rgb(46, 29, 59) 0%, rgb(77, 53, 97) 50%, hsla(356, 53%, 57%, 1) 100%);
+
+background: -moz-radial-gradient(circle, rgb(67, 42, 88) 0%, rgb(52, 40, 61) 50%, hsla(356, 53%, 57%, 1) 100%);
+
+background: -webkit-radial-gradient(circle, rgb(63, 40, 82) 0%, rgb(87, 68, 102) 50%, hsla(356, 53%, 57%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#9A5ECA", endColorstr="#BD90E3", GradientType=1 );
 
 }
+
+.button-staff{
+    -webkit-box-shadow: -5px -5px 10px 0px rgba(28,22,28,0.52);
+    -moz-box-shadow: -5px -5px 10px 0px rgba(28,22,28,0.52);
+    box-shadow: -5px -5px 10px 0px rgba(28,22,28,0.52);
+    padding: 30%;
+    border: none;
+    margin: 10px;
+    font-size: x-large;
+    font-weight: bolder;
+
+    background: hsla(302, 82%, 76%, 1);
+
+background: radial-gradient(circle, rgb(68, 23, 67) 0%, hsla(258, 40%, 68%, 1) 100%);
+
+background: -moz-radial-gradient(circle, rgb(73, 40, 72) 0%, hsla(258, 40%, 68%, 1) 100%);
+
+background: -webkit-radial-gradient(circle, rgb(70, 40, 69) 0%, hsla(258, 40%, 68%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F492F0", endColorstr="#A18DCE", GradientType=1 );
+    
+}
+
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #33323a;
+    position: fixed;
+    height: 100%;
+    margin-left: 0px;
+    overflow: auto;
+    -webkit-box-shadow: -8px -5px 5px 0px rgba(28,22,28,0.52);
+    -moz-box-shadow: -8px -5px 5px 0px rgba(28,22,28,0.52);
+    box-shadow: -8px -5px 5px 0px rgba(28,22,28,0.52);
+    
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+  .container {
+      background-color: rgbra(46, 44, 44, 0.836);
+      
+  }
+  .row {
+      margin-top: 20px;
+  }

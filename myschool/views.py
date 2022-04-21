@@ -19,13 +19,13 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 @login_required(login_url='/accounts/login/')
-def home(request):
-    neighbourHood = Teacher.objects.all()
-    message ="Select your Neighbourhoods"
+def teachers(request):
+    teachers = Teacher.objects.all()
+    
     
     
 
-    return render(request,'index.html',{'neighbourhoods': neighbourHood, 'message': message})
+    return render(request,'teachers.html',{'teachers':teachers})
 
 
 
@@ -41,7 +41,7 @@ def add_business(request):
         if form.is_valid():
             form.save()
             print('saved successfully')
-            return redirect(home)
+            return redirect()
         else:
             print('not not saved')
     
@@ -73,7 +73,7 @@ def add_neighbourhood(request):
         form = TeacherForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect(home)
+            return redirect()
     
     else:
         form = TeacherForm()

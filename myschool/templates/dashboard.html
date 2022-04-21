@@ -1,4 +1,5 @@
 {% load bootstrap3 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,22 +15,42 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="{% static 'style.css'}">
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock %}
+
 </head>
-<body>
+<body >
     <div class="container">
-        <div class="row">
-            <div class="col-sm-3" style="background-color: aliceblue;">1 
+        <div class="row" >
+
+            
+              
+
+            <div class="col-sm-3" >
+                <div class="sidebar">
+                    <a class="active" href="#home">Home</a>
+                    <a href="#news">News</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#about">About</a>
+                  </div>
+                  
+                  <!-- Page content -->
+                  <div class="content">
+                    
+
+                    
+                  </div>
             
             </div>
-            <div class="col-sm-9" style="background-color: blueviolet;">2  
+            <div class="col-sm-9" style="background-color: blujeviolet;">
             <div class="row">
-                <div class="col-sm-4"><button>Teacher</button></div>
-                <div class="col-sm-4"><button>Student</button></div>
-                <div class="col-sm-4"><button>Staff</button></div>
+                <div class="col-sm-4"><a href="{% url 'teachers' %}"><button class="button-teacher">Teachers</button></a></div>
+                <div class="col-sm-4"><a href=""><button class="button-student">Students</button></a></div>
+                <div class="col-sm-4"><a href=""><button class="button-staff">Staffs</button></a></div>
             </div>
-                <div class="shadow p-3 mb-5 bg-white rounded"><button>others</button></div><br><br>
-            </div>
+                
         </div>
     </div>
     
