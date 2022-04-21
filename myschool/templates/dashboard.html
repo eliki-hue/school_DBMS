@@ -30,10 +30,13 @@
 
             <div class="col-sm-3" >
                 <div class="sidebar">
-                    <a class="active" href="#home">Home</a>
-                    <a href="#news">News</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#about">About</a>
+                    <a class="active" href="#home">Dashboard</a>
+                    <a href="{% url 'students' %}">Students</a>
+                    <a href="{% url 'teachers' %}">Teachers</a>
+                    <a href="{% url 'staff' %}">Staffs</a>
+                    <a href="{% url 'add_student' %}">Add Student</a>
+                    <a href="{% url 'add_teacher' %}">Add Teacher</a>
+                    <a href="{% url 'add_staff' %}">Add Staff</a>
                   </div>
                   
                   <!-- Page content -->
@@ -44,13 +47,14 @@
                   </div>
             
             </div>
+            {% block content %}
             <div class="col-sm-9" style="background-color: blujeviolet;">
             <div class="row">
                 <div class="col-sm-4"><a href="{% url 'teachers' %}"><button class="button-teacher">Teachers</button></a></div>
-                <div class="col-sm-4"><a href=""><button class="button-student">Students</button></a></div>
-                <div class="col-sm-4"><a href=""><button class="button-staff">Staffs</button></a></div>
+                <div class="col-sm-4"><a href="{% url 'students' %}"><button class="button-student">Students</button></a></div>
+                <div class="col-sm-4"><a href="{% url 'staff' %}"><button class="button-staff">Staffs</button></a></div>
             </div>
-                
+                {% endblock%}
         </div>
     </div>
     

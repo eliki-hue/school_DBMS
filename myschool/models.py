@@ -1,4 +1,5 @@
 from email.policy import default
+from pyexpat import model
 from django.db import models
 from django.forms import CharField, IntegerField
 
@@ -7,6 +8,8 @@ from django.forms import CharField, IntegerField
 class Teacher(models.Model):
     name = models.CharField(max_length=50)
     tsc_no =models.IntegerField()
+    phone = models.IntegerField(default=0)
+    email = models.EmailField(max_length=50, default= '')
     subject1 = models.CharField(max_length=20)
     subject2 = models.CharField(max_length=20)
 
@@ -14,8 +17,8 @@ class Teacher(models.Model):
         return self.name
 
 class Student(models.Model):
-    f_name = models.CharField(max_length=30)
-    l_name = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
     adm_no = models.IntegerField()
     form = models.CharField(max_length=5)
     parent_name =models.CharField(max_length=50)
@@ -45,8 +48,10 @@ class Scores(models.Model):
 
 class Staff(models.Model):
     name = models.CharField(max_length=50)
+    phone = models.IntegerField(default=0)
+    email = models.EmailField(max_length=50, default='')
     role = models.CharField(max_length=20)
     salary = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.nam
+        return self.name

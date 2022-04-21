@@ -28,13 +28,13 @@ def teachers(request):
 def students(request):
     students = Student.objects.all()
 
-    return render(request,'studentss.html',{'students':students})
+    return render(request,'students.html',{'students':students})
 
 @login_required(login_url='/accounts/login/')
 def staff(request):
     staffs = Staff.objects.all()
 
-    return render(request,'teachers.html',{'teachers':teachers})
+    return render(request,'staffs.html',{'staffs':staffs})
 
 
 
@@ -42,42 +42,38 @@ def staff(request):
        
 
 @login_required(login_url='/accounts/login/')
-def add_business(request):
+def add_staff(request):
     current_user = request.user
     if request.method =='POST':
         print('received')
-        form = ScoresForm(request.POST, request.FILES)
+        form = StaffForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            print('saved successfully')
-            return redirect()
-        else:
-            print('not not saved')
+           
+           
     
     else:
-        print('get request')
-        form = ScoresForm()
-        return render(request, 'add_business.html', {'form':form})
-    return redirect('home')
+       
+        form = StaffForm()
+        return render(request, 'add_staff.html', {'form':form})
+    return redirect('add_staff')
 
 @login_required(login_url='/accounts/login/')
-def add_post(request):
+def add_student(request):
     if request.method =='POST':
         
         form = StudentForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-           
-            print('post saved successfully')
     
     else:
         form = StudentForm()
 
-        return render(request, 'add_post.html', {'form':form})
-    return redirect('single_neighbourhood')
+        return render(request, 'add_student.html', {'form':form})
+    return redirect('add_student')
 
 @login_required(login_url='/accounts/login/')
-def add_neighbourhood(request):
+def add_teacher(request):
     if request.method =='POST':
         form = TeacherForm(request.POST, request.FILES)
         if form.is_valid():
@@ -86,7 +82,8 @@ def add_neighbourhood(request):
     
     else:
         form = TeacherForm()
-        return render(request, 'add_neighbourhood.html', {'form':form})
+        return render(request, 'add_teacher.html', {'form':form})
+    return redirect('add_teacher')
 
 @login_required(login_url='/accounts/login/')
 def search_results(request):

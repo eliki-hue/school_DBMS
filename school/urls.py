@@ -24,7 +24,7 @@ urlpatterns = [
     path('', include('myschool.urls')),
     path('accounts/', include('registration.backends.simple.urls')),
     path('logout/', views.LogoutView.as_view(), {"next_page": '/'}), 
-    path('login', views.redirect_to_login,{"next_page": 'home'}),
+    path('login', views.redirect_to_login,{"next_page": 'dashboard'}),
     path('accounts/', include('django.contrib.auth.urls')),
     
 ]

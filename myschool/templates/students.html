@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
  <!-- Latest compiled and minified CSS -->
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -6,35 +7,37 @@
  
  <!-- Latest compiled and minified JavaScript -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
- 
-{% if teachers %}
-
+ {% block content %}
+{% if students %}
+<h1>List of All Students</h1>
 <table class="table table-dark">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">TSC NO</th>
-        <th scope="col">First subject</th>
-        <th scope="col">Second subject</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Second name</th>
+        <th scope="col">ADM</th>
+        <th scope="col">Parent name</th>
+        <th scope="col">Parent Phone</th>
       </tr>
     </thead>
     <tbody>
-        {% for teacher in teachers %}
+        {% for student in students %}
       <tr>
-        <th scope="row">{{teacher.id}}</th>
-        <td>{{teacher.name}}</td>
-        <td>{{teacher.tsc_no}}</td>
-        <td>{{teacher.subject1}}</td>
-        <td>{{teacher.subject2}}</td>
+        <th scope="row">{{student.id}}</th>
+        <td>{{student.f_name}}</td>
+        <td>{{student.l_name}}</td>
+        <td>{{student.adm_no}}</td>
+        <td>{{student.parent_name}}</td>
+        <td>{{student.parent_phone}}</td>
         
       </tr>
       {%endfor%}
     </tbody>
   </table>
-<!-- {{teacher.name}}   {{teacher.tsc_no}}   {{teacher.subject1}} {{teacher.subject2}}<br> -->
-<!-- ...................................................................... <br> -->
+
  <br>
 {% else %}
 <h1>nothing to display</h1>
 {%endif%}
+{% endblock %}
