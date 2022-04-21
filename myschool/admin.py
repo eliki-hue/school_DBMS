@@ -1,4 +1,4 @@
-from tkinter import S
+
 from django.contrib import admin
 from .models import Teacher, Scores, Student, Fee, Staff
 
