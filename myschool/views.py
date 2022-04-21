@@ -31,7 +31,7 @@ def students(request):
     return render(request,'studentss.html',{'students':students})
 
 @login_required(login_url='/accounts/login/')
-def staffs(request):
+def staff(request):
     staffs = Staff.objects.all()
 
     return render(request,'teachers.html',{'teachers':teachers})
