@@ -1,0 +1,35 @@
+{%extends 'base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    <!-- {% if search_result%}
+      <h2> {{message}}</h2>
+    {% else %}
+      <h2> {{message}}</h2>
+    {% endif %}
+
+  </div> -->
+
+  
+
+  <!-- {{message}} -->
+
+  {% if search_result %}
+  
+  {% for search_result in search_result %}
+  <div class="row">
+      {{message}}
+    
+    
+    <h3><strong>Name: </strong> {{search_result.name}}</h3> 
+    <h3> <strong> Description:</strong> {{search_result.description}}</h3>
+    <h3><strong>email: </strong>{{search_result.email}}</h3>
+    {%endfor%}
+    {% else %}
+
+    <h2>No project with the searched title</h2>
+  {% endif %}
+  </div>
+</div>
+{% endblock %}

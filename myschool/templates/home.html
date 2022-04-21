@@ -1,0 +1,95 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% load bootstrap3 %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{neighbourhood.name}}</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2" style="background-color:rgb(148, 231, 152);"><h4>Important contacts</h4>
+        <h5>Health Tel: {{neighbourhood.health_tel}}</h5>
+      <h5>Police Tel: {{neighbourhood.police_number}}</h5>
+      </div>
+      <div class="col-sm-7"><img src="{{neighbourhood.hood_logo.url}}" height="auto" width="100%" alt="mascot">
+      <h5>Name: {{neighbourhood.name}}</h5>
+      <h5>Description: {{neighbourhood.description}}</h5>
+      <br>
+      <h3>Posts</h3>
+      {% if neighbourhood.hood_post.all %}
+      {% for post in neighbourhood.hood_post.all %}
+      <h5><strong>{{post.title}}</strong></h5>
+      {{post.post}} <br>
+      {% endfor %}
+      {%endif%}
+
+
+      
+    
+      </div> 
+      <div class="col-sm-3" style="background-color: rgb(130, 168, 135);"><h3>Businesses in the area</h3>
+        {% if neighbourhood.business.all %}
+        {% for business in neighbourhood.business.all %}
+        <h5><strong>{{business.name}}</strong></h5>
+        {{business.description}} <br>
+        {% endfor %}
+        {%endif%}
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</body>
+</html>
+<!-- <body style="background-image:url('/static/image/index_bg4.jpg'); background-size:cover;background-color: black;background-repeat: no-repeat;"> -->
+  <!-- <div class="container">
+    <div class="row header" style="height: 40%;;"> -->
+      <!-- <img src="{% static 'image/bg4.jpg' %}" style="height: 50vh;width: 100%;" alt=""> -->
+    <!-- </div><br><br>
+    <div class="row">
+      <div  style="font-family: 'Kavivanar', cursive;">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-sm-12 col-md-4 col-lg-3"style="font-family: 'Kavivanar', cursive;">
+                    <div class="card">
+                        <div class="card-body">
+                            <div style="text-align:center;"></div>
+                           
+                               <div"  > <i class="fa fa-thumbs-up" ></i></button> 
+                               </a>
+                        
+                              </form>
+                                
+                              <p>Name: {{neighbourhood.name}}({{neighbourhood.location}})</p>  
+                            <p>{{neighbourhood.owner}} </p> 
+                        
+                        <div class="overlay">
+                            <p style="font-size:15px;">
+                            
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html> -->
+   
+      
+    
+
+
