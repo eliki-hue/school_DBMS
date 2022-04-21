@@ -71,10 +71,10 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F492F0", en
     padding: 0;
     width: 200px;
     background-color: #33323a;
-    position: fixed;
-    height: 100%;
+    position: relative;
+    height: 95%;
     margin-left: 0px;
-    overflow: auto;
+    overflow:auto;
     -webkit-box-shadow: -8px -5px 5px 0px rgba(28,22,28,0.52);
     -moz-box-shadow: -8px -5px 5px 0px rgba(28,22,28,0.52);
     box-shadow: -8px -5px 5px 0px rgba(28,22,28,0.52);
@@ -105,7 +105,7 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F492F0", en
   div.content {
     margin-left: 200px;
     padding: 1px 16px;
-    height: 1000px;
+    height: 100%;
   }
   
   /* On screens that are less than 700px wide, make the sidebar into a topbar */
