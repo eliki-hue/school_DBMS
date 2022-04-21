@@ -22,20 +22,25 @@
 {% endblock %}
 
 </head>
-<body >
+<body style="background-color: rgba(161, 235, 34, 0.329);" >
     <div class="container">
         <div class="row" >
 
-           <div class="col-sm-3" style="background-color: aliceblue;">
+           <div class="col-sm-3" >
+            
             <div class="sidebar">
+              <p style="color: white; text-align: center;">School Database Mangement System</p>
               <a class="active" href="{% url 'dashboard' %}">Dashboard</a>
               <a href="{% url 'students' %}">Students</a>
               <a href="{% url 'teachers' %}">Teachers</a>
               <a href="{% url 'staff' %}">Staffs</a>
+              .......................... <br>
               <a href="{% url 'add_student' %}">Add Student</a>
               <a href="{% url 'add_teacher' %}">Add Teacher</a>
               <a href="{% url 'add_staff' %}">Add Staff</a>
-              <br><br><a class="nav-link" href="/accounts/logout/">logout</a>
+
+              ............................
+              <br><a class="nav-link" href="/accounts/logout/">logout</a>
             </div>
           </div>
 
