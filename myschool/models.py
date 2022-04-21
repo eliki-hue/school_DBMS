@@ -1,7 +1,7 @@
 from email.policy import default
 from django.db import models
 from django.forms import CharField, IntegerField
-from sqlalchemy import ForeignKey
+
 
 # Create your models here.
 class Teacher(models.Model):
